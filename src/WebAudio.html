@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>WebAudio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @font-face {
+            font-family: "Nova Mono", monospace;
+        }
+
+        p {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -70px);
+            color: #ddd;
+            text-align: center;
+            text-transform: uppercase;
+            font-family: "Nova Mono", monospace;
+            font-size: 0.8em;
+            font-weight: bold;
+            letter-spacing: 2px;
+            user-select: none;
+        }
+
+        body {
+            height: 100vh;
+            background: radial-gradient(circle, #666, #222);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        div {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 47%;
+            cursor: pointer;
+            filter: invert();
+            user-select: none;
+        }
+
+        input[type="file"] {
+            display: none;
+
+        }
+
+        canvas {
+            display: none;
+        }
+
+        #imgDrop {
+            height: 100%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<p>click or drop</p>
+<div dropzone>
+    <!-- <label for="fileInput">-->
+    <img src="sprites/acceptPng.png" alt="#" id='imgDrop'>
+    <!--</label>-->
+    <input type="file" accept="audio/*" id="fileInput">
+</div>
+
+<canvas id='canvas'></canvas>
+<script src="VizualizatorTest.js"></script>
+</body>
+</html>
