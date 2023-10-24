@@ -17,7 +17,7 @@
         <span class="cart-icon material-symbols-outlined">
               shopping_basket
         </span>
-        <div>{{ itemOnCart }}</div>
+        <div class="itemOnCart-count">{{ itemOnCart }}</div>
         <!--0074D9AE-->
         <!--        <button class="info-shop-button" v-on:click="updateVariable"-->
         <!--                style="background-color: #fff; cursor: pointer; color: #0074D9; border: none; padding: 10px 20px; font-size: 16px; font-weight: bold;">-->
