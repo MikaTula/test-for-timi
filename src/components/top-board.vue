@@ -1,29 +1,24 @@
 <template>
   <div class="top-board">
-    <div class="board"
-         style="background-color: hsl(var(--mainHue), 100%, 43%); top:0;justify-content: space-between; align-items: center; font-family: Arial, sans-serif;">
-      <h1 style="color: #fff; font-size: 36px; margin: 0; position: relative; left: 30px ">SuperStore</h1>
-      <div class='buttons' style="display: flex;">
-        <button
-            style="background-color: #fff; cursor: pointer; color:hsl(var(--mainHue), 100%, 43%); border: none; padding: 10px 20px; font-size: 16px; font-weight: bold; margin-right: 40px;">
-          Каталог
-        </button>
-        <router-link style="text-decoration: none; color: inherit;"
+    <div class="top-board__board">
+      <h1 class="top-board__board__header">SuperStore</h1>
+      <div class='top-board__board__buttons top-buttons'>
+        <button class="top-buttons__catalog">Каталог</button>
+        <router-link class="top-board__board__about-us router-link"
                      :to="this.$route.name === 'shopInfo' ? { name: 'product' } : { name: 'shopInfo' }">
           <div>
             <blob-button :button-text="this.$route.name=== 'shopInfo' ? blobText[1] : blobText[0]"></blob-button>
           </div>
         </router-link>
+        <div class="top-buttons__cart">
+          <router-link class="router-link"
+              :to="{name: 'cart'}">
         <span class="cart-icon material-symbols-outlined">
               shopping_basket
         </span>
-        <div class="itemOnCart-count">{{ itemOnCart }}</div>
-        <!--0074D9AE-->
-        <!--        <button class="info-shop-button" v-on:click="updateVariable"-->
-        <!--                style="background-color: #fff; cursor: pointer; color: #0074D9; border: none; padding: 10px 20px; font-size: 16px; font-weight: bold;">-->
-        <!--          О нас-->
-        <!--        </button>-->
-
+          </router-link>
+          <div class="top-board__board__item-on-cart-count">{{ (this.$store.getters.getCartItems).length }}</div>
+        </div>
       </div>
     </div>
   </div>
@@ -34,11 +29,6 @@ import blobButton from "@/components/buttun.vue"
 export default {
   name: 'top-board',
   props: {
-    itemOnCart: {
-      type: Number,
-      required: true,
-      
-    }
   },
   data: function () {
     return {
@@ -53,23 +43,87 @@ export default {
 
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
+.top-board {
+  &__board {
+    padding: 0 10px;
+    background-color: hsl(var(--mainHue), 100%, 43%);
+    height: 110px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &__header {
+      color: #fff;
+      font-size: 36px;
+      margin: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    &__buttons {
+      display: flex;
+    }
+
+    &__about-us {
+
+    }
+
+    &__item-on-cart-count {
+      display: flex;
+      align-self: baseline;
+      color: hsl(210, 29%, 24%);
+      border-radius: 8px;
+      font-size: 24px;
+    }
+
+  }
+
+
+}
+
+.top-buttons {
+
+  flex-wrap: wrap;
+  align-content: space-around;
+  gap: 16px;
+
+  &__catalog {
+    background-color: #fff;
+    cursor: pointer;
+    color: hsl(var(--mainHue), 100%, 43%);
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  &__cart {
+    display: flex;
+  }
+
+}
+
 .cart-icon {
   font-size: 50px;
 }
 
-.buttons {
-  position: relative;
-  right: 29px;
-  display: flex;
-}
+/*.itemOnCart-count{*/
+/*  display: flex;*/
+/*  align-self: baseline;*/
+/*  color: hsl(210, 29%, 24%);*/
+/*  border-radius: 8px;*/
+/*  font-size: 24px;*/
+/*}*/
+/*.cart-icon {*/
+/*  font-size: 50px;*/
+/*}*/
 
-:global(.board) {
-  position: absolute;
-  left: 0;
-  display: flex;
-  height: 10%;
-  width: 100%;
-}
+/*.buttons {*/
+/*  position: relative;*/
+/*  right: 29px;*/
+/*  display: flex;*/
+/*}*/
+
 </style>
 

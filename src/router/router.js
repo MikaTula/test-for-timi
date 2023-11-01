@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import product from "@/components/product.vue";
 import koefPolitic from "@/components/koefPolitic.vue";
 import ShopInfo from "@/components/ShopInfo.vue";
-
+import shopCart from "@/components/cart.vue";
 Vue.use(VueRouter);
 let router = new VueRouter({
     routes: [
@@ -27,6 +27,11 @@ let router = new VueRouter({
             path: '/shopInfo',
             name: 'shopInfo',
             component: ShopInfo
+        },
+        {
+            path:'/cart',
+            name:'cart',
+            component:shopCart
         }
     ]
 

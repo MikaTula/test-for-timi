@@ -1,7 +1,6 @@
 <template>
-  <div>
-    <div style="display: inline-block">
-    </div>
+  <div class="host-class">
+    <top-board ></top-board>
     <title class="title-ShopInfo">SuperStore - магазин радиоэлектроники</title>
     <h1 class="h1-ShopInfo">SuperStore - магазин радиоэлектроники</h1>
     <p>Добро пожаловать в SuperStore - магазин радиоэлектроники, где вы найдете все необходимое для своих электронных
@@ -22,14 +21,18 @@
       и
       лучшим сервисом!</p>
     <p class="p-ShopInfo">С уважением, команда SuperStore.</p>
+    <bottom-board></bottom-board>
   </div>
 </template>
 <script>
 //import blobButton from "@/buttun.vue"
 // import TopBoard from "@/top-board.vue";
+import TopBoard from "@/components/top-board.vue";
+import BottomBoard from "@/components/bottom-board.vue";
 
 export default {
   name: 'shop-info',
+  components: {BottomBoard,TopBoard},
   data: function () {
     return {
       // infoButton: false
